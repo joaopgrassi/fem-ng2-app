@@ -7,7 +7,8 @@
 
 <hr>
 <div>
-  <h2 class="text-error">Home: {{ message }}</h2>
+  <h2 class="text-error">Home: {{ messageState.message }}</h2>
+  <small>Last received messagem: {{messageState.lastReceived}} </small>
   <form class="form-inline">
     <input type="text" [(ngModel)]="message" placeholder="Message" name="message">
     <button type="submit" class="btn" (click)="updateMessage(message)">Update Message</button>

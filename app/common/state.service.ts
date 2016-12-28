@@ -1,14 +1,29 @@
 import {Injectable} from '@angular/core';
+import {StateMessage} from './state.model';
 
 @Injectable()
 export class StateService {
-	private _message = 'Hello Message';
+private stateMessage: StateMessage;
+
+/**
+ * CTOR
+ */
+constructor() {  
+  this.stateMessage = <StateMessage>{};
+  this.stateMessage.message =  'Hello Message';
+  this.stateMessage.lastReceived = new Date();
+}	
 
   getMessage(): string {
-    return this._message;
+    return this.stateMessage.message;
   };
 
+  getLastReceivedMessageDate(): Date {
+    return this.stateMessage.lastReceived;
+  }
+
   setMessage(newMessage: string): void {
-    this._message = newMessage;
+    this.stateMessage.message = newMessage;
+    this.stateMessage.lastReceived = new Date();
   };
 }

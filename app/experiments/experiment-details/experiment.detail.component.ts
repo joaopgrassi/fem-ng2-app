@@ -19,5 +19,6 @@ export class ExperimentDetailComponent {
 
   doExperiment(): void {
     this.experiment.completed += 1;
+    this.experiment.lastClick = new Date();
   };
 }
